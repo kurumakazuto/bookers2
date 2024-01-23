@@ -1,0 +1,22 @@
+<div>
+  <h1>User info</h1>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3><%= @user.name %></h3>
+
+    <h3>introduction</h3>
+    <span><%= @user.introduction %></span>
+</div>
+
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+
+<p>Title</p>
+<span><%= book.title %></span>
+
+<p>Opinion</p>
+<span><%= book.body %></span>
+
+<% end %>
+
+<P>CopyRight Infratop.inc</P>
