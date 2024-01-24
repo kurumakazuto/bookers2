@@ -1,11 +1,14 @@
 <div>
   <h1>User info</h1>
+  
   <%= image_tag @user.get_profile_image(100,100) %>
   <h3><%= @user.name %></h3>
 
     <h3>introduction</h3>
     <span><%= @user.introduction %></span>
 </div>
+
+<span><%= link_to "Edit", edit_user_path(@user.id) %></span>
 
 <h1>Books</h1>
 
