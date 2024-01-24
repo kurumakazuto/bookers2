@@ -1,3 +1,23 @@
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div>
+  <h1>User info</h1>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3><%= @user.name %></h3>
+
+    <h3>introduction</h3>
+    <span><%= @user.introduction %></span>
+</div>
+
+<span><%= link_to "Edit", edit_user_path(@user.id) %></span>
+
 <h1>New Book</h1>
 
 <%= form_with model: @book do |f| %>
@@ -15,12 +35,13 @@
 
 <% @books.each do |book| %>
 
+<%= image_tag book.user.get_profile_image(100,100) %>
+
 <p>Title</p>
-<span><%= book.title %></span>
+<span><%= link_to book.title, book_path(book.id) %></span>
 
 <p>Opinion</p>
 <span><%= book.body %></span>
 
 <% end %>
 
-<P>CopyRight Infratop.inc</P>

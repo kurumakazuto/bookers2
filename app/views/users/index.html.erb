@@ -7,6 +7,8 @@
     <span><%= @user.introduction %></span>
 </div>
 
+<span><%= link_to "Edit", edit_user_path(@user.id) %></span>
+
 <h1>New Book</h1>
 
 <%= form_with model: @book do |f| %>
@@ -33,5 +35,3 @@
 
 
 <% end %>
-
-<P>CopyRight Infratop.inc</P>
