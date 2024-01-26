@@ -2,14 +2,19 @@
   <%= flash[:notice] %>
 </div>
 
-<h1>welcome to Bookers!!</h1>
-<p>In Bookers,</p>
-<p>you can share and exchange your opinions, inpressions,and emotions</p>
-<p>about various books!</p>
+<div class="top">
+    <h1>welcome to <i class="fa-solid fa-book"></i> Bookers!!</h1>
+    <p>In <i class="fa-solid fa-book"></i><b>Bookers,</b></p>
+    <p>you can share and exchange your opinions, inpressions,and emotions</p>
+    <p>about various books!</p>
+</div>
+        
+    <li class="botan">
+        <%= link_to "log in", new_user_session_path, class: "btn btn-secondary", style:"width:500px; background-color:#00bfff"%>
+    </li>
+    <li class="botan">
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-secondary", style:"width:500px; background-color:#3cb371" %>
+    </li>
+  
 
-<li>
-  <%= link_to "Log in", new_user_session_path %>
-</li>
-<li>
-  <%= link_to "Sign up", new_user_registration_path %>
-</li>
+</div>

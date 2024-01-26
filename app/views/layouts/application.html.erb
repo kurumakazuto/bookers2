@@ -19,14 +19,14 @@
      <header class="row px-5 py-4" >
         <div class="col-2 offset-1">
       <li>
-        <%= link_to "Bookers", root_path,class:"text-white" %>
+        <%= link_to "Bookers", root_path,class:"text-white",style:"text-decoration:none;" %>
       </li>
       </div>
       <div class="col-4 offset-3">
         <div class="row">
           <div class="col-3">
             <li>
-               <%= link_to user_path(current_user),class:"text-white" do %>
+               <%= link_to user_path(current_user),class:"text-white",style:"text-decoration:none;" do %>
                      <i class="fa-solid fa-house"></i>
                      Home
                  <% end %>
@@ -34,17 +34,26 @@
           </div>
           <div class="col-3">
             <li>
-              <%= link_to "Users", users_path %>
+              <%= link_to users_path,class:"text-white",style:"text-decoration:none;" do %>
+                <i class="fa-solid fa-users"></i>
+                Users
+              <% end %>
             </li>
           </div> 
           <div class="col-3">
             <li>
-              <%= link_to "Books", books_path %>
+              <%= link_to books_path,class:"text-white",style:"text-decoration:none;" do %>
+                <i class="fa-solid fa-book-open"></i>
+                Books
+              <% end %>
             </li>
           </div>
           <div class="col-3">
             <li>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+              <%= link_to destroy_user_session_path, method: :delete,class:"text-white",style:"text-decoration:none;" do  %>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Log out
+              <% end %>
             </li>
           </div>
         </div>
@@ -57,29 +66,41 @@
      <header class="row px-5 py-4" >
         <div class="col-2 offset-1">
       <li>
-        <%= link_to "Bookers", root_path %>
+        <%= link_to "Bookers", root_path,class:"text-white",style:"text-decoration:none;"  %>
       </li>
       </div>
       <div class="col-4 offset-3">
         <div class="row">
           <div class="col-3">
-            <li class="fa-solid fa-house">
-              <%= link_to "Home", root_path %>
+            <li>
+              <%= link_to root_path,class:"text-white",style:"text-decoration:none;" do %>
+                <i class="fa-solid fa-house"></i>
+                Home
+              <% end %>
             </li>
           </div>
           <div class="col-3">
             <li>
-              <%= link_to "About", about_path %>
+              <%= link_to about_path,class:"text-white",style:"text-decoration:none;" do %>
+                <i class="fa-solid fa-link"></i>
+                About
+                <% end %>
             </li>
           </div> 
           <div class="col-3">
             <li>
-              <%= link_to "Sign up", new_user_registration_path %>
+              <%= link_to new_user_registration_path,class:"text-white",style:"text-decoration:none;" do %>
+                <i class="fa-solid fa-user-plus"></i>
+                Sign up
+                <% end %>
             </li>
           </div>
           <div class="col-3">
             <li>
-              <%= link_to "Log in", new_user_session_path %>
+              <%= link_to new_user_session_path,class:"text-white",style:"text-decoration:none;" do  %>
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Log in
+                <% end %>
             </li>
           </div>
         </div>
@@ -95,4 +116,3 @@
   <footer>CopyRight Infratop.inc</footer>
 </html>
 
-<i class="fa-solid fa-house"></i>

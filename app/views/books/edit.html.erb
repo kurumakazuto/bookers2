@@ -1,4 +1,4 @@
-<h1>Editing Book</h1>
+<h3>Editing Book</h3>
 
 <% if @book.errors.any? %>
   <%= @book.errors.count %>errors prohibited this obj from being saved:
@@ -11,17 +11,15 @@
 
 <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
 
-    <h4>Title</h4>
+    <h6>Title</h6>
     <%= f.text_field :title %>
 
-    <h4>Opinion</h4>
+    <h6>Opinion</h6>
     <%= f.text_area :body %>
 
-    <p><%= f.submit 'Update Book' %></p>
+    <p><%= f.submit 'Update Book' ,class:"text-white" , style:"background-color:#32cd32;"%></p>
 <% end %>
 
 <span><%= link_to "Show", book_path(@book.id) %></span>
 <span>|</span>
 <span><%= link_to "Back", book_path %></span>
-
-<P>CopyRight Infratop.inc</P>

@@ -1,24 +1,33 @@
-<div>
-  <h1>User info</h1>
-  <%= image_tag user.get_profile_image(100,100) %>
-  <h3>name</h3>
-  <h3><%= user.name %></h3>
 
-    <h3>introduction</h3>
-    <span><%= user.introduction %></span>
+<div>
+  <h3>User info</h3>
+  <div class="user-info1">
+      <%= image_tag user.get_profile_image(100,100) %>
+  </div>
+  <div class="user-info2">
+    <h6 class="name">name</h6>
+    <h6 class="name"><%= user.name %></h6>
+  </div>
+  <div class="introduction1">
+    <h6 class="introduction2">introduction</h6>
+    <h6 class="introduction2"><%= user.introduction %></h6>
+  </div>
+</div>
+<div class="user-edit">
+  <%= link_to edit_user_path(user.id),class: "btn btn-secondary", style:"width:250px;" do %>
+    <i class="fa-solid fa-user-gear"></i>
+  <% end %>
 </div>
 
-<span><%= link_to "Edit", edit_user_path(user.id) %></span>
-
-<h1>New Book</h1>
+<h3>New Book</h3>
 
 <%= form_with model: book do |f| %>
 
-    <h4>Title</h4>
+    <h6>Title</h6>
     <%= f.text_field :title %>
 
-    <h4>Opinion</h4>
+    <h6>Opinion</h6>
     <%= f.text_area :body %>
-
-    <p><%= f.submit 'Create Book' %></p>
+    <p><%= f.submit 'Create Book',class:"text-white" , style:"background-color:#32cd32;" %></p>
+  
 <% end %>

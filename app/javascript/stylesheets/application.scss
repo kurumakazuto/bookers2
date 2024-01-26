@@ -1,8 +1,75 @@
 @use '~bootstrap/scss/bootstrap';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 header{
   background-color:#000000;
   list-style: none;
+ }
+ 
+ footer{
+   margin:50px;
+   text-align: center;
+ }
+ 
+ .top{
+   margin:0 auto;
+ }
+ 
+ .top-botan{
+   text-decoration:none;
+ }
+
+.botan{
+  margin: 10px;
+  text-align: center;
+  list-style: none;
+}
+
+.about{
+  margin-top: 10px;
+  text-align: center;
   
 }
 
+.user-info1{
+  
+}
+  
+.user-info2{
+  display:flex;
+  margin-top: 20px;
+}
+
+.name{
+  margin-right: 60px;
+}
+
+
+.introduction1{
+  display:flex;
+}
+
+.introduction2{
+  margin: 20px 10px 0 0;
+}
+
+.user-edit{
+  margin: 30px 0 10px 0;
+}
+
+.title{
+  margin-left: 40px;
+}
+
+.sign-up{
+  margin: 10px 0 0 250px;
+}
+
+.log-in{
+  margin: 10px 0 0 250px;
+}
