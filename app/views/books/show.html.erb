@@ -11,25 +11,64 @@
           
           <h1>Book detail</h1>
           <table class="table table-striped">
+            
             <tbody>
               <tr>
-                 <th><%= link_to user_path(@book.user_id) do %>
+                 <td><%= link_to user_path(@book.user_id) do %>
                     <%= image_tag @book.user.get_profile_image(100,100) %>
                     <br><%= @book.user.name %>
                     <% end %>
-                 </th>  
+                 </td>  
           
-                 <th><%= link_to @book.title, book_path(@book.id) %></th>
+                 <td><%= link_to @book.title, book_path(@book.id) %></td>
           
-                 <th><%= @book.body %></th>
+                 <td><%= @book.body %></td>
+                 <td><% if @book.favorited_by?(current_user) %>
+                         <%= link_to book_favorites_path(@book), method: :delete do %>
+                           ♥<%= @book.favorites.count %>
+                         <% end %>
+
+                      <% else %>
+
+                         <%= link_to book_favorites_path(@book), method: :post do %>
+                           ♥<%= @book.favorites.count %>
+                         <% end %>
+                      <% end %>
+                 </td>
+                 <td>コメント数:<%= @book.book_comments.count %></td>
+             
           
-              <% if @book.user == current_user %>
-                 <th><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-secondary", style:"width:50px; background-color:#32cd32;" %></th>
-                 <th><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-secondary", style:"width:100px; background-color:#b22222;" %></th>
-              <% end %>
+                      <% if @book.user == current_user %>
+                         <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-secondary", style:"width:50px; background-color:#32cd32;" %></td>
+                         <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-secondary", style:"width:100px; background-color:#b22222;" %></td>
+                      <% end %>
+               </tbody>
+          </table>
+              </tr>
+              <% @book.book_comments.each do |book_comment| %>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= image_tag book_comment.user.get_profile_image(100,100) %>
+                <br><%= book_comment.user.name %></td>
+                <td><%= book_comment.comment %></td>
+                <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-secondary", style:"width:100px; background-color:#b22222;" %></td>
+                <% end %>
               </tr>
             </tbody>
           </table>
+
+             <%= form_with model: [@book,@book_comment] do |f| %>
+               <%= f.text_area :comment, rows: '5',cols:'80' %>
+               <br><%= f.submit "送信" %>
+             <% end %>
        </div>
     </div>
 </div>
