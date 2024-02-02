@@ -13,7 +13,7 @@ class BookCommentsController < ApplicationController
     comment = current_user.find_by(book_comment_params)
     comment.book_id = book.id
     comment.destroy
-    redirect_back fallback_location: books_path
+    redirect_to request.referer
   end
   
   def book_comment_params
