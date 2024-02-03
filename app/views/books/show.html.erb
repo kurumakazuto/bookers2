@@ -59,8 +59,10 @@
                 <td><%= image_tag book_comment.user.get_profile_image(100,100) %>
                 <br><%= book_comment.user.name %></td>
                 <td><%= book_comment.comment %></td>
+                <% if book_comment.user == current_user %>
                 <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-secondary", style:"width:100px; background-color:#b22222;" %></td>
                 <% end %>
+              <% end %>
               </tr>
             </tbody>
           </table>
