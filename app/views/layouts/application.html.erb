@@ -9,110 +9,75 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <div class="social"></div></header>
   </head>
 
-  <body>
-    
-    <% if user_signed_in? %>
-    <div class="container-fluid">
-     <header class="row px-5 py-4" >
-        <div class="col-2 offset-1">
-      <li>
-        <%= link_to "Bookers", root_path,class:"text-white",style:"text-decoration:none;" %>
-      </li>
-      </div>
-      <div class="col-4 offset-3">
-        <div class="row">
-          <div class="col-3">
-            <li>
-               <%= link_to user_path(current_user),class:"text-white",style:"text-decoration:none;" do %>
-                     <i class="fa-solid fa-house"></i>
-                     Home
-                 <% end %>
-            </li>
+     <header>
+       <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+         <div class="container">
+          <div class="navbar-brand" >
+            <%= link_to "Bookers", root_path,class:"text-light" %>
           </div>
-          <div class="col-3">
+          <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
             <li>
-              <%= link_to users_path,class:"text-white",style:"text-decoration:none;" do %>
+              <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
+                <i class="fa-solid fa-house"></i>
+                  Home
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_path,class: 'nav-link text-light' do %>
                 <i class="fa-solid fa-users"></i>
                 Users
               <% end %>
             </li>
-          </div> 
-          <div class="col-3">
             <li>
-              <%= link_to books_path,class:"text-white",style:"text-decoration:none;" do %>
+              <%= link_to books_path,class: 'nav-link text-light' do %>
                 <i class="fa-solid fa-book-open"></i>
                 Books
               <% end %>
             </li>
-          </div>
-          <div class="col-3">
             <li>
-              <%= link_to destroy_user_session_path, method: :delete,class:"text-white",style:"text-decoration:none;" do  %>
+              <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
                 <i class="fa-solid fa-right-from-bracket"></i>
                 Log out
               <% end %>
             </li>
-          </div>
-        </div>
-      </div>
-     </header>
-    </div>
-            
-    <% else %>
-    <div class="container-fluid">
-     <header class="row px-5 py-4" >
-        <div class="col-2 offset-1">
-      <li>
-        <%= link_to "Bookers", root_path,class:"text-white",style:"text-decoration:none;"  %>
-      </li>
-      </div>
-      <div class="col-4 offset-3">
-        <div class="row">
-          <div class="col-3">
+          <% else %>
             <li>
-              <%= link_to root_path,class:"text-white",style:"text-decoration:none;" do %>
+              <%= link_to root_path,class: 'nav-link text-light' do %>
                 <i class="fa-solid fa-house"></i>
                 Home
               <% end %>
             </li>
-          </div>
-          <div class="col-3">
             <li>
-              <%= link_to about_path,class:"text-white",style:"text-decoration:none;" do %>
+              <%= link_to about_path,class: 'nav-link text-light' do %>
                 <i class="fa-solid fa-link"></i>
                 About
                 <% end %>
             </li>
-          </div> 
-          <div class="col-3">
             <li>
-              <%= link_to new_user_registration_path,class:"text-white",style:"text-decoration:none;" do %>
+              <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
                 <i class="fa-solid fa-user-plus"></i>
                 Sign up
                 <% end %>
             </li>
-          </div>
-          <div class="col-3">
             <li>
-              <%= link_to new_user_session_path,class:"text-white",style:"text-decoration:none;" do  %>
+              <%= link_to new_user_session_path,class: 'nav-link text-light' do %>
                 <i class="fa-solid fa-right-to-bracket"></i>
                 Log in
                 <% end %>
             </li>
-          </div>
-        </div>
-      </div>
+          <% end %>
+           </ul>
+         </div>
+       </nav>
      </header>
-    </div>
-    <% end %>
-  
-  
+     <div class="mx-auto p-2" style="width: 500px;">
+       <%= render 'searches/search' %> 
+     </div>
     <%= yield %>
-    
-  </body>
-  <footer>CopyRight Infratop.inc</footer>
+  <footer class="mx-auto p-2" style="width: 200px;">CopyRight Infratop.inc</footer>
 </html>
+
 
