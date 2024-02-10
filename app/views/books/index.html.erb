@@ -23,6 +23,8 @@
                   <th class="title">Title</th>
                   <th class="opinion">Opinion</th>
                   <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
 
@@ -37,7 +39,9 @@
                    <td><%= book.body %></td>
                    <td id="favorite_buttons_<%= book.id %>">
                        <%= render "favorites/favorite",book: book %>
-                    </td>
+                   </td>
+                   <td>コメント数:<%= book.book_comments.count %></td>
+                    <td>閲覧数:<%= book.read_counts.count %></td>
                   </tr>
                 <% end %>
               </tbody>
